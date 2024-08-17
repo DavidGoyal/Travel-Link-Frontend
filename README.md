@@ -1,30 +1,30 @@
-# React + TypeScript + Vite
+# TRAVEL LINK
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It is a tinder for solo travellers. A traveller can find partners for visiting any place.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+  npm install
+  npm build
+  npm run start
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`VITE_BACKEND_URL`
+
+## Screenshots
+
+![App Screenshot](<src/assets/Screenshot 2024-08-17 155259.png>)
+
+![App Screenshot](<src/assets/Screenshot 2024-08-17 153032.png>)
+
+![App Screenshot](<src/assets/Screenshot 2024-08-17 154033.png>)
+
+## Authors
+
+- [@LinkedIn](www.linkedin.com/in/david-goyal)
+- [@X](https://x.com/David__Goyal)

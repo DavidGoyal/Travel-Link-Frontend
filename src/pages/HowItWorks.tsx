@@ -24,7 +24,14 @@ const HowItWorks = () => {
 				padding={"2rem"}
 				gap={"4rem"}
 				position={"relative"}
+				zIndex={10}
 			>
+				<Stack
+					width={"100vw"}
+					height={"100%"}
+					bgcolor={"whitesmoke"}
+					sx={{ position: "fixed", top: 0, left: 0, zIndex: -1 }}
+				/>
 				<Button
 					variant="contained"
 					sx={{ position: "absolute", top: "2rem", left: "1.5rem" }}

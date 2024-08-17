@@ -31,7 +31,7 @@ const Home = () => {
 						position: "absolute",
 						top: 0,
 						left: 0,
-						gap: "15rem",
+						gap: { xs: "10rem", sm: "15rem" },
 						padding: "1rem",
 					}}
 				>

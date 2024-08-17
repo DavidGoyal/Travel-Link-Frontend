@@ -257,7 +257,7 @@ const Login = () => {
 							>
 								<Stack
 									sx={{ overflowY: "auto" }}
-									height={{ xs: "55%", lg: "47%" }}
+									height={{ xs: "50%", lg: "47%" }}
 								>
 									<Stack position={"relative"} width={"5rem"} margin={"auto"}>
 										<Avatar
