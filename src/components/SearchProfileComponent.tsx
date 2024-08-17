@@ -119,6 +119,7 @@ const SearchProfileComponent = () => {
 							width: "100%",
 							borderRadius: "10px",
 							objectFit: "cover",
+							marginTop: "1rem",
 						}}
 					/>
 

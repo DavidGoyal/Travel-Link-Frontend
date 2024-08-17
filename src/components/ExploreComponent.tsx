@@ -1,7 +1,12 @@
 import {
 	Avatar,
+	Box,
 	Button,
+	FormControl,
 	IconButton,
+	InputLabel,
+	MenuItem,
+	Select,
 	Skeleton,
 	Stack,
 	TextField,
@@ -27,6 +32,7 @@ import Search from "@mui/icons-material/Search";
 import { calculateAge } from "../lib/features";
 import MenuIcon from "@mui/icons-material/Menu";
 import { setIsDrawerOpen } from "../redux/reducers/miscReducer";
+import { City, Country, State } from "country-state-city";
 
 const ExploreComponent = () => {
 	const { data, isLoading, isError } = useGetFriendRequestsQuery();
@@ -50,6 +56,8 @@ const ExploreComponent = () => {
 		user?.destination?.charAt(0).toUpperCase() +
 			(user?.destination?.slice(1) as string) || ""
 	);
+	const [country, setCountry] = useState("IN");
+	const [state, setState] = useState("DL");
 	const [date, setDate] = useState(user?.date?.split("T")[0]);
 	const [loading, setIsLoading] = useState(false);
 	const [friend, setFriendLoading] = useState(false);
@@ -372,18 +380,60 @@ const ExploreComponent = () => {
 					gap={"1rem"}
 				>
 					<Typography fontWeight={550}>Start Looking For Traveller</Typography>
-					<Stack>
+					<Stack sx={{ overflowY: "auto" }}>
 						<form onSubmit={handleSubmit}>
-							<TextField
-								required={true}
-								fullWidth
-								type="text"
-								label="Destination"
-								margin="normal"
-								variant="outlined"
-								value={destination}
-								onChange={(e) => setDestination(e.target.value)}
-							/>
+							<Box sx={{ marginY: "0.6rem" }}>
+								<FormControl fullWidth>
+									<InputLabel id="demo-simple-select-label">Country</InputLabel>
+									<Select
+										labelId="demo-simple-select-label"
+										id="demo-simple-select"
+										value={country}
+										label="Country"
+										onChange={(e) => setCountry(e.target.value)}
+									>
+										{Country.getAllCountries().map((country) => (
+											<MenuItem value={country.isoCode}>
+												{country.name}
+											</MenuItem>
+										))}
+									</Select>
+								</FormControl>
+							</Box>
+
+							<Box sx={{ marginY: "0.6rem" }}>
+								<FormControl fullWidth>
+									<InputLabel id="demo-simple-select">State</InputLabel>
+									<Select
+										labelId="demo-simple-select"
+										id="demo-simple-select"
+										value={state}
+										label="State"
+										onChange={(e) => setState(e.target.value)}
+									>
+										{State.getStatesOfCountry(country).map((state) => (
+											<MenuItem value={state.isoCode}>{state.name}</MenuItem>
+										))}
+									</Select>
+								</FormControl>
+							</Box>
+
+							<Box sx={{ marginTop: "0.6rem" }}>
+								<FormControl fullWidth>
+									<InputLabel id="demo-simple">City</InputLabel>
+									<Select
+										labelId="demo-simple"
+										id="demo-simple-select"
+										value={destination}
+										label="City"
+										onChange={(e) => setDestination(e.target.value)}
+									>
+										{City.getCitiesOfState(country, state)!.map((city) => (
+											<MenuItem value={city.name}>{city.name}</MenuItem>
+										))}
+									</Select>
+								</FormControl>
+							</Box>
 							<TextField
 								required={true}
 								fullWidth

@@ -1,10 +1,36 @@
-import { Grid } from "@mui/material";
+import { Drawer, Grid, IconButton } from "@mui/material";
 import Header from "../components/Header";
 import SearchProfileComponent from "../components/SearchProfileComponent";
+import { RootState } from "../redux/store";
+import { setIsDrawerOpen } from "../redux/reducers/miscReducer";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useDispatch, useSelector } from "react-redux";
 
 const SearchProfile = () => {
+	const dispatch = useDispatch();
+
+	const { isDrawerOpen } = useSelector((state: RootState) => state.misc);
+
 	return (
 		<Grid container height={"100vh"} width={"100vw"}>
+			<IconButton
+				sx={{
+					display: { xs: "block", lg: "none" },
+					position: "absolute",
+					top: 4,
+					left: 2,
+				}}
+				onClick={() => dispatch(setIsDrawerOpen(true))}
+			>
+				<MenuIcon />
+			</IconButton>
+			<Drawer
+				open={isDrawerOpen}
+				sx={{ display: { xs: "block", lg: "none" } }}
+				onClose={() => dispatch(setIsDrawerOpen(false))}
+			>
+				<Header />
+			</Drawer>
 			<Grid
 				item
 				height={"100%"}

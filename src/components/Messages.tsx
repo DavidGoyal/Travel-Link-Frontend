@@ -225,6 +225,8 @@ const Messages = ({ chatId }: { chatId: string }) => {
 			<form
 				style={{
 					height: "10%",
+					backgroundColor: "white",
+					zIndex: 10,
 				}}
 				onSubmit={submitHandler}
 			>
