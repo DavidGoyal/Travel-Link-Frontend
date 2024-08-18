@@ -22,6 +22,7 @@ const Verify = lazy(() => import("./pages/Verify"));
 const OpenChat = lazy(() => import("./pages/OpenChat"));
 const UserGuide = lazy(() => import("./pages/UserGuide"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
 	const { user, isLoading } = useSelector((state: RootState) => state.user);
@@ -72,6 +73,7 @@ const App = () => {
 						<Route path="/chat" element={<Chat />} />
 						<Route path="/chat/:chatId" element={<OpenChat />} />
 					</Route>
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</Suspense>
 			<Toaster position="bottom-center" />
