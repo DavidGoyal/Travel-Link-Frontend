@@ -105,7 +105,7 @@ const SearchProfileComponent = () => {
 				height={"100%"}
 				direction={{ xs: "column", md: "row" }}
 				padding={"2rem"}
-				gap={"2rem"}
+				gap={{ xs: "4rem", md: "2rem" }}
 			>
 				<Stack
 					height={{ xs: "50%", md: "100%" }}

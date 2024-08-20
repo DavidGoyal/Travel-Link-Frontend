@@ -152,7 +152,7 @@ const Login = () => {
 					component={"main"}
 					maxWidth="xs"
 					sx={{
-						height: "80vh",
+						height: { xs: "90vh", sm: "85vh", md: "80vh" },
 						display: "flex",
 						flexDirection: "column",
 						justifyContent: "center",
@@ -250,6 +250,7 @@ const Login = () => {
 
 							<form
 								style={{
+									height: "100%",
 									width: "100%",
 									marginTop: "1rem",
 								}}
@@ -257,7 +258,7 @@ const Login = () => {
 							>
 								<Stack
 									sx={{ overflowY: "auto" }}
-									height={{ xs: "45%", lg: "47%" }}
+									height={{ xs: "70%", sm: "67%", lg: "65%" }}
 								>
 									<Stack position={"relative"} width={"5rem"} margin={"auto"}>
 										<Avatar

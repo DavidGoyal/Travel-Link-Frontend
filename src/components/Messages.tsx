@@ -164,10 +164,10 @@ const Messages = ({ chatId }: { chatId: string }) => {
 	const allMessages = [...oldMessages, ...messages];
 
 	return isLoading ? (
-		<Skeleton height={"100%"} />
+		<Skeleton height={"100%"} width={"100%"} />
 	) : (
 		<>
-			<Stack height={"90%"} position={"relative"}>
+			<Stack height={"90vh"} position={"relative"}>
 				<Stack
 					ref={containerRef}
 					boxSizing={"border-box"}
@@ -201,6 +201,7 @@ const Messages = ({ chatId }: { chatId: string }) => {
 							overflowY: "auto",
 						}}
 					/>
+
 					<Stack
 						sx={{
 							position: "relative",
@@ -224,7 +225,7 @@ const Messages = ({ chatId }: { chatId: string }) => {
 
 			<form
 				style={{
-					height: "10%",
+					height: "10vh",
 					backgroundColor: "white",
 					zIndex: 10,
 				}}

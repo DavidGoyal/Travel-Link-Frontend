@@ -111,7 +111,7 @@ const Chat = () => {
 				</Drawer>
 				<Grid item height={"100%"} xs={12} sm={5} lg={3} bgcolor={"whitesmoke"}>
 					{isLoading ? (
-						<Skeleton sx={{ height: "100%", width: "100%" }} />
+						<Skeleton sx={{ height: "100vh", width: "100%" }} />
 					) : (
 						<ChatList
 							chats={data?.chats as ChatType[]}
