@@ -35,7 +35,11 @@ const Home = () => {
 						Travel Link
 					</Typography>
 
-					<Button variant="contained" sx={{ borderRadius: "20px" }}>
+					<Button
+						variant="contained"
+						sx={{ borderRadius: "20px" }}
+						onClick={() => navigate("/login")}
+					>
 						Sign Up
 					</Button>
 				</Stack>
