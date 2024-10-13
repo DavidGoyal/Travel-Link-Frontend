@@ -35,6 +35,7 @@ import {
 import { setUser } from "../redux/reducers/userReducer.ts";
 import { VisuallyHiddenInput } from "../styles/StyledComponents.tsx";
 import { ErrorResponse } from "../types/apiTypes.ts";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 const Login = () => {
 	const [isLogin, setIsLogin] = useState(false);
@@ -59,6 +60,7 @@ const Login = () => {
 	const [bio, setBio] = useState("");
 	const [country, setCountry] = useState("IN");
 	const [state, setState] = useState("DL");
+	const [cloudflareToken, setCloudFlareToken] = useState("");
 
 	const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -69,6 +71,7 @@ const Login = () => {
 			const res = await login({
 				email: email.value,
 				password: password.value,
+				cloudflareToken,
 			});
 
 			if ("data" in res) {
@@ -203,6 +206,11 @@ const Login = () => {
 									variant="outlined"
 									value={password.value}
 									onChange={password.changeHandler}
+								/>
+
+								<Turnstile
+									siteKey={import.meta.env.VITE_SITE_KEY}
+									onSuccess={(e) => setCloudFlareToken(e)}
 								/>
 
 								<Button

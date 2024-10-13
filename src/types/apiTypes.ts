@@ -9,6 +9,7 @@ import {
 export type loginUserInput = {
 	email: string;
 	password: string;
+	cloudflareToken: string;
 };
 
 export type loginUserResponse = {

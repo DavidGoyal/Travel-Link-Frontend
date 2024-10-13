@@ -23,11 +23,11 @@ export const api = createApi({
 	tagTypes: ["Travel", "Notification", "Rating", "Upvote", "Chat"],
 	endpoints: (builder) => ({
 		loginUser: builder.mutation<loginUserResponse, loginUserInput>({
-			query: ({ email, password }) => ({
+			query: ({ email, password, cloudflareToken }) => ({
 				url: "user/login",
 				method: "POST",
 				credentials: "include",
-				body: { email, password },
+				body: { email, password, cloudflareToken },
 			}),
 		}),
 		registerUser: builder.mutation<loginUserResponse, registerUserInput>({
