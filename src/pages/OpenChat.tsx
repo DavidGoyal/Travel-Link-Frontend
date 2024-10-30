@@ -1,24 +1,24 @@
+import MenuIcon from "@mui/icons-material/Menu";
 import { Drawer, Grid, IconButton, Skeleton } from "@mui/material";
+import { useCallback, useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import ChatList from "../components/ChatList";
 import Header from "../components/Header";
 import Messages from "../components/Messages";
-import { ChatType } from "../types/types";
-import toast from "react-hot-toast";
-import { useMyChatsQuery } from "../redux/api/api";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { useSocket } from "../socket";
-import { useCallback, useEffect, useState } from "react";
-import { addNewMessageAlert } from "../redux/reducers/chatReducer";
+import SEO from "../components/Seo";
 import {
 	NEW_MESSAGE_ALERT,
 	ONLINE_USERS,
 	REFETCH_CHATS,
 } from "../constants/events";
+import { useMyChatsQuery } from "../redux/api/api";
+import { addNewMessageAlert } from "../redux/reducers/chatReducer";
 import { setIsDrawerOpen } from "../redux/reducers/miscReducer";
-import MenuIcon from "@mui/icons-material/Menu";
-import SEO from "../components/Seo";
+import { RootState } from "../redux/store";
+import { useSocket } from "../socket";
+import { ChatType } from "../types/types";
 
 const OpenChat = () => {
 	const params = useParams();
@@ -126,7 +126,7 @@ const OpenChat = () => {
 				</Grid>
 
 				<Grid item height={"100%"} xs={12} sm={7} lg={7} bgcolor={"whitesmoke"}>
-					<Messages chatId={params.chatId!} />
+					<Messages chatId={params.chatId!} onlineUsers={onlineUsers} />
 				</Grid>
 			</Grid>
 		</>
